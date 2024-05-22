@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayZ - Buy/Sell/Claim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Wallet</h1>
+        <div id="bank">$0</div>
+        <br>
+        <div class="tabs">
+            <button onclick="showTab('buy')">Buy</button>
+            <button onclick="showTab('sell')">Sell</button>
+            <button onclick="showTab('claim')">Rewards</button>
+            <button onclick="resetBank()">Reset</button>
+        </div>
+    </header>
+    <div class="container">
+        <div id="buy" class="tab-content">
+            <h1>Buy</h1>
+            <h2>Clothing</h2>
+            <h4>Tops</h4>
+            <button onclick="buyItem('Tracksuit Jacket', 25)">Tracksuit Jacket $25</button>
+            <button onclick="buyItem('Prisoner Jacket', 25)">Prisoner Jacket $25</button>
+            <button onclick="buyItem('Collar Dress', 25)">Collar Dress $25</button>
+            <button onclick="buyItem('Blouse', 25)">Blouse $25</button>
+            <button onclick="buyItem('Raincoat', 45)">Raincoat $45</button>
+            <button onclick="buyItem('Bomber Jacket', 55)">Bomber Jacket $55</button>
+            <button onclick="buyItem('Nurse Dress', 55)">Nurse Dress $55</button>
+            <button onclick="buyItem('Leather Jacket', 60)">Leather Jacket $60</button>
+            <button onclick="buyItem('Police Jacket', 65)">Police Jacket $65</button>
+            <button onclick="buyItem('Denim Jacket', 65)">Denim Jacket $65</button>
+            <button onclick="buyItem('Jumpsuit Jacket', 50)">Jumpsuit Jacket $50</button>
+            <button onclick="buyItem('Paramedic Jacket', 50)">Paramedic Jacket $50</button>
+            <button onclick="buyItem('Pea Coat', 75)">Pea Coat $75</button>
+            <button onclick="buyItem('Rider Jacket', 85)">Rider Jacket $85</button>
+            <button onclick="buyItem('Orel Police Jacket', 95)">Orel Police Jacket $95</button>
+            <button onclick="buyItem('Quilted Jacket', 95)">Quilted Jacket $95</button>
+            <button onclick="buyItem('Chainmail', 95)">Chainmail $95</button>
+            <button onclick="buyItem('Firefighter Jacket', 100)">Firefighter Jacket $100</button>
+            <button onclick="buyItem('Hiking Jacket', 105)">Hiking Jacket $105</button>
+            <button onclick="buyItem('Hunter Jacket', 125)">Hunter Jacket $125</button>
+            <button onclick="buyItem('Tactical Shirt', 150)">Tactical Shirt $150</button>
+            <button onclick="buyItem('CUU Jacket', 250)">CUU Jacket $250</button>
+            <button onclick="buyItem('NBC Jacket', 250)">NBC Jacket $250</button>
+            <button onclick="buyItem('Patrol Jacket', 200)">Patrol Jacket $200</button>
+            <button onclick="buyItem('Combat Jacket', 350)">Combat Jacket $350</button>
+            <button onclick="buyItem('BDU Jacket', 350)">BDU Jacket $350</button>
+            <button onclick="buyItem('Ghillie Shrug', 950)">Ghillie Shrug $950</button>
+            <h4>Bottoms</h4>
+            <button onclick="buyItem('Jumpsuit Pants', 25)">Jumpsuit Pants $25</button>
+            <button onclick="buyItem('Denim Skirt', 25)">Denim Skirt $25</button>
+            <button onclick="buyItem('Capri Pants', 25)">Capri Pants $25</button>
+            <button onclick="buyItem('Jeans', 25)">Jeans $25</button>
+            <button onclick="buyItem('Suit Pants', 25)">Suit Pants $25</button>
+            <button onclick="buyItem('Scrub Pants', 25)">Scrub Pants $25</button>
+            <button onclick="buyItem('Prisoner Pants', 25)">Prisoner Pants $25</button>
+            <button onclick="buyItem('Leather Pants', 65)">Leather Pants $65</button>
+            <button onclick="buyItem('Paramedic Pants', 55)">Paramedic Pants $55</button>
+            <button onclick="buyItem('Orel Police Pants', 85)">Orel Police Pants $85</button>
+            <button onclick="buyItem('Chainmail Leggings', 125)">Chainmail Leggings $125</button>
+            <button onclick="buyItem('NBC Pants', 225)">NBC Pants $225</button>
+            <button onclick="buyItem('CCU Pants', 225)">CCU Pants $225</button>
+            <button onclick="buyItem('Patrol Pants', 225)">Patrol Pants $225</button>
+            <button onclick="buyItem('Firefighter Pants', 200)">Firefighter Pants $200</button>
+            <button onclick="buyItem('Cargo Pants', 325)">Cargo Pants $325</button>
+            <h4>Middle</h4>
+            <button onclick="buyItem('Rope Belt', 15)">Rope Belt $15</button>
+            <button onclick="buyItem('Belt', 45)">Belt $45</button>
+            <button onclick="buyItem('Tactical Belt', 85)">Tactical Belt $85</button>
+            <button onclick="buyItem('Sheath', 75)">Sheath $75</button>
+            <button onclick="buyItem('Hip Pack', 85)">Hip Pack $85</button>
+            <button onclick="buyItem('Holster', 225)">Holster $225</button>
+            <h4>Chest</h4>
+            <button onclick="buyItem('Chest Holster', 85)">Chest Holster $85</button>
+            <button onclick="buyItem('Hunter Vest', 175)">Hunter Vest $175</button>
+            <button onclick="buyItem('Chestplate', 175)">Chestplate $175</button>
+            <button onclick="buyItem('Tactical Vest', 225)">Tactical Vest $225</button>
+            <button onclick="buyItem('Field Vest', 250)">Field Vest $250</button>
+            <button onclick="buyItem('Assault Vest', 300)">Assault Vest $300</button>
+            <button onclick="buyItem('Pouches', 300)">Pouches $300</button>
+            <button onclick="buyItem('Plate Carrier', 550)">Plate Carrier $550</button>
+            <h4>Shoes</h4>
+            <button onclick="buyItem('Sneakers', 25)">Sneakers $25</button>
+            <button onclick="buyItem('Flat Shoes', 25)">Flat Shoes $25</button>
+            <button onclick="buyItem('Wellies', 35)">Wellies $35</button>
+            <button onclick="buyItem('Leather Shoes', 65)">Leather Shoes $65</button>
+            <button onclick="buyItem('Trail Shoes', 85)">Trail Shoes $85</button>
+            <button onclick="buyItem('Hiking Boots', 85)">Hiking Boots $85</button>
+            <button onclick="buyItem('Working Boots', 85)">Working Boots $85</button>
+            <button onclick="buyItem('Medieval Boots', 85)">Medieval Boots $85</button>
+            <button onclick="buyItem('Hunter Boots', 125)">Hunter Boots $125</button>
+            <button onclick="buyItem('Assault Boots', 225)">Assault Boots $225</button>
+            <button onclick="buyItem('Jungle Boots', 225)">Jungle Boots $225</button>
+            <button onclick="buyItem('NBC Boots', 225)">NBC Boots $225</button>
+            <h4>Head</h4>
+            <button onclick="buyItem('Bandana', 25)">Bandana $25</button>
+            <button onclick="buyItem('Mime Mask', 25)">Mime Mask $25</button>
+            <button onclick="buyItem('Carnival Mask', 25)">Carnival Mask $25</button>
+            <button onclick="buyItem('Baseball Cap', 25)">Baseball Cap $25</button>
+            <button onclick="buyItem('Radar Cap', 25)">Radar Cap $25</button>
+            <button onclick="buyItem('Beanie', 25)">Beanie $25</button>
+            <button onclick="buyItem('Ushanka', 25)">Ushanka $25</button>
+            <button onclick="buyItem('Boonie Hat', 25)">Boonie Hat $25</button>
+            <button onclick="buyItem('Cowboy Hat', 25)">Cowboy Hat $25</button>
+            <button onclick="buyItem('Leather Hat', 25)">Leather Hat $25</button>
+            <button onclick="buyItem('Petushok Hat', 25)">Petushok Hat $25</button>
+            <button onclick="buyItem('Morozko Hat', 25)">Morozko Hat $25</button>
+            <button onclick="buyItem('Okzk Cap', 25)">Okzk Cap $25</button>
+            <button onclick="buyItem('Christmas Headband', 25)">Christmas Headband $25</button>
+            <button onclick="buyItem('Ski Mask', 25)">Ski Mask $25</button>
+            <button onclick="buyItem('Witch Hat', 55)">Witch Hat $55</button>
+            <button onclick="buyItem('Beret', 75)">Beret $75</button>
+            <button onclick="buyItem('Norse Helm', 75)">Norse Helm $75</button>
+            <button onclick="buyItem('Great Helm', 75)">Great Helm $75</button>
+            <button onclick="buyItem('Enduro Helmet + Mouth Guard + Visor', 75)">Enduro Helmet + Mouth Guard + Visor $75</button>
+            <button onclick="buyItem('Witch Hood', 85)">Witch Hood $85</button>
+            <button onclick="buyItem('Combat Gas Mask', 125)">Combat Gas Mask $125</button>
+            <button onclick="buyItem('Armored Hood', 155)">Armored Hood $155</button>
+            <button onclick="buyItem('Chainmail Coif', 155)">Chainmail Coif $155</button>
+            <button onclick="buyItem('Gas Mask', 225)">Gas Mask $225</button>
+            <button onclick="buyItem('Ballistic Helmet', 225)">Ballistic Helmet $225</button>
+            <button onclick="buyItem('Camouflage Helmet', 225)">Camouflage Helmet $225</button>
+            <button onclick="buyItem('Assault Helmet + Visor', 325)">Assault Helmet + Visor $325</button>
+            <button onclick="buyItem('Tactical Helmet', 325)">Tactical Helmet $325</button>
+            <button onclick="buyItem('NVG + Headstrap', 625)">NVG + Headstrap $625</button>
+            <button onclick="buyItem('Ghillie Hood', 625)">Ghillie Hood $625</button>
+            <h4>Hands</h4>
+            <button onclick="buyItem('Fingerless Gloves', 55)">Fingerless Gloves $55</button>
+            <button onclick="buyItem('Wool Gloves', 65)">Wool Gloves $65</button>
+            <button onclick="buyItem('Working Gloves', 45)">Working Gloves $45</button>
+            <button onclick="buyItem('Leather Gloves', 65)">Leather Gloves $65</button>
+            <button onclick="buyItem('Padded Gloves', 85)">Padded Gloves $85</button>
+            <button onclick="buyItem('Tactical Gloves', 125)">Tactical Gloves $125</button>
+            <button onclick="buyItem('NBC Gloves', 225)">NBC Gloves $225</button>
+            <h4>Bags</h4>
+            <button onclick="buyItem('First Aid Pouch', 45)">First Aid Pouch $45</button>
+            <button onclick="buyItem('Canvas Bag', 65)">Canvas Bag $65</button>
+            <button onclick="buyItem('Sling Bag', 95)">Sling Bag $95</button>
+            <button onclick="buyItem('Leather Backpack', 95)">Leather Backpack $95</button>
+            <button onclick="buyItem('Drybag Backpack', 105)">Drybag Backpack $105</button>
+            <button onclick="buyItem('Leather Duffel Bag', 125)">Leather Duffel Bag $125</button>
+            <button onclick="buyItem('Mountain Backpack', 125)">Mountain Backpack $125</button>
+            <button onclick="buyItem('Utility Buttpack', 225)">Utility Buttpack $225</button>
+            <button onclick="buyItem('Assault Backpack', 225)">Assault Backpack $225</button>
+            <button onclick="buyItem('Field Backpack', 425)">Field Backpack $425</button>
+
+
+            <h2>Weapons</h2>
+            <h4>Melee</h4>
+            <button onclick="buyItem('Crude Machete', 125)">Crude Machete $125</button>
+            <button onclick="buyItem('Machete', 85)">Machete $85</button>
+            <button onclick="buyItem('Mace', 85)">Mace $85</button>
+            <button onclick="buyItem('Sword', 155)">Sword $155</button>
+            <button onclick="buyItem('KA Bayonet', 165)">KA Bayonet $165</button>
+            <button onclick="buyItem('M4-A1 Bayonet', 185)">M4-A1 Bayonet $185</button>
+            <button onclick="buyItem('Mosin 91/30 Bayonet', 125)">Mosin 91/30 Bayonet $125</button>
+            <button onclick="buyItem('SK 59/66 Bayonet', 125)">SK 59/66 Bayonet $125</button>
+            <h4>Handguns</h4>
+            <button onclick="buyItem('MK-II', 100)">MK-II $100</button>
+            <button onclick="buyItem('Derringer', 125)">Derringer $125</button>
+            <button onclick="buyItem('MLock-91', 210)">MLock-91 $210</button>
+            <button onclick="buyItem('IJ-70', 225)">IJ-70 $225</button>
+            <button onclick="buyItem('CR-75', 350)">CR-75 $350</button>
+            <button onclick="buyItem('Deagle', 350)">Deagle $350</button>
+            <button onclick="buyItem('Revolver', 365)">Revolver $365</button>
+            <button onclick="buyItem('FX-45', 450)">FX-45 $450</button>
+            <button onclick="buyItem('Longhorn', 455)">Longhorn $455</button>
+            <button onclick="buyItem('Kolt 1911', 550)">Kolt 1911 $550</button>
+            <button onclick="buyItem('Engraved Kolt 1911', 850)">Engraved Kolt 1911 $850</button>
+            <button onclick="buyItem('Deagle (Gold)', 11250)">Deagle (Gold) $11250</button>
+            <h4>SMG's</h4>
+            <button onclick="buyItem('Bizon', 325)">Bizon $325</button>
+            <button onclick="buyItem('USG-45', 675)">USG-45 $675</button>
+            <button onclick="buyItem('CR-61 Skorpion', 385)">CR-61 Skorpion $385</button>
+            <button onclick="buyItem('VIKHR', 655)">VIKHR $655</button>
+            <button onclick="buyItem('SG5-K', 825)">SG5-K $825</button>
+            <h4>Rifles</h4>
+            <button onclick="buyItem('Sporter 22', 125)">Sporter 22 $125</button>
+            <button onclick="buyItem('Repeater Carabine', 285)">Repeater Carabine $285</button>
+            <button onclick="buyItem('SK 59/66', 355)">SK 59/66 $355</button>
+            <button onclick="buyItem('Mosin 91/30', 435)">Mosin 91/30 $435</button>
+            <button onclick="buyItem('SSG 82', 565)">SSG 82 $565</button>
+            <button onclick="buyItem('Blaze', 675)">Blaze $675</button>
+            <button onclick="buyItem('CR-550 Savanna', 705)">CR-550 Savanna $705</button>
+            <button onclick="buyItem('VSS', 725)">VSS $725</button>
+            <button onclick="buyItem('SVAL', 945)">SVAL $945</button>
+            <button onclick="buyItem('LAR', 855)">LAR $855</button>
+            <button onclick="buyItem('VSD', 965)">VSD $965</button>
+            <button onclick="buyItem('DMR', 895)">DMR $895</button>
+            <button onclick="buyItem('M70 Tundra', 1075)">M70 Tundra $1750</button>
+            <h4>Assault Rifles</h4>
+            <button onclick="buyItem('LE-MAS', 925)">LE-MAS $925</button>
+            <button onclick="buyItem('M16-A2', 885)">M16-A2 $885</button>
+            <button onclick="buyItem('KA-74', 985)">KA-74 $985</button>
+            <button onclick="buyItem('KA-101', 925)">KA-101 $925</button>
+            <button onclick="buyItem('AUR A1', 1255)">AUR A1 $1255</button>
+            <button onclick="buyItem('AUR AX', 1275)">AUR AX $1275</button>
+            <button onclick="buyItem('LAR', 1255)">LAR $1255</button>
+            <button onclick="buyItem('M4-A1', 1850)">M4-A1 $1850</button>
+            <h4>Shotguns</h4>
+            <button onclick="buyItem('Sawed-off BK43', 125)">Sawed-off BK43 $125</button>
+            <button onclick="buyItem('BK-133', 555)">BK-133 $555</button>
+            <button onclick="buyItem('Vaiga', 855)">Vaiga $855</button>
+            <h4>Grenade Launcher</h4>
+            <button onclick="buyItem('Flashbang', 150)">Flashbang $150</button>
+            <button onclick="buyItem('Smoke Grenade', 150)">Smoke Grenade $150</button>
+            <button onclick="buyItem('Grenade', 250)">Grenade $250</button>
+            <button onclick="buyItem('Mine', 425)">Mine $425</button>
+            <button onclick="buyItem('M79', 2550)">M79 $2550</button>
+            <h4>Crossbow</h4>
+            <button onclick="buyItem('Crossbow (Wood)', 250)">Crossbow (Wood) $250</button>
+            <button onclick="buyItem('Crossbow', 525)">Crossbow $525</button>  
+            <h4>Weapon Attachment</h4>
+            <button onclick="buyItem('Plastic Bottle Suppressor', 65)">Plastic Bottle Suppressor $65</button>
+            <button onclick="buyItem('Flashlight', 75)">Flashlight $75</button>
+            <button onclick="buyItem('Stock', 195)">Stock $195</button>
+            <button onclick="buyItem('Handguard', 205)">Handguard $205</button>
+            <button onclick="buyItem('Reflex Sight', 205)">Reflex Sight $205</button>
+            <button onclick="buyItem('Optic Sight', 265)">Optic Sight $265</button>
+            <button onclick="buyItem('Scope', 295)">Scope $295</button>
+            <button onclick="buyItem('Suppressor', 585)">Suppressor $585</button>
+            <h4>Ammo</h4>
+            <button onclick="buyItem('Crossbow Bolts', 35)">Crossbow Bolts $35</button>
+            <button onclick="buyItem('Pistol Ammo-Box', 45)">Pistol Ammo-Box $45</button>
+            <button onclick="buyItem('Shotgun Ammo-Box', 65)">Shotgun Ammo-Box $65</button>
+            <button onclick="buyItem('Pistol Magazine', 65)">Pistol Magazine $65</button>
+            <button onclick="buyItem('Rifle Ammo-Box', 85)">Rifle Ammo-Box $85</button>
+            <button onclick="buyItem('Shotgun Magazine', 85)">Shotgun Magazine $85</button>
+            <button onclick="buyItem('Rifle Magazine', 105)">Rifle Magazine $105</button>
+            <button onclick="buyItem('Magazine 30+Rounds', 150)">Magazine 30+Rounds $150</button>
+            <button onclick="buyItem('Drum Magazine', 250)">Drum Magazine $250</button>
+        
+            <h2>Medical</h2>
+            <h4>Transfusion</h4>
+            <button onclick="buyItem('IV Saline Bag', 50)">IV Saline Bag $50</button>
+            <button onclick="buyItem('IV Start Kit', 75)">IV Start Kit $75</button>
+            <button onclick="buyItem('IV Blood Bag', 100)">IV Blood Bag $100</button>
+            <button onclick="buyItem('Blood Collection Kit', 100)">Blood Collection Kit $100</button>
+            <button onclick="buyItem('Blood Test Kit', 150)">Blood Test Kit $150</button>
+            <h4>Dressing</h4>
+            <button onclick="buyItem('Splint', 75)">Splint $75</button>
+            <button onclick="buyItem('Bandage', 150)">Bandage $150</button>
+            <h4>Medicine</h4>
+            <button onclick="buyItem('Multivitamin Pills', 125)">Multivitamin Pills $125</button>
+            <button onclick="buyItem('Chlorine Tablets', 125)">Chlorine Tablets $125</button>
+            <button onclick="buyItem('Tetracycline Pills', 420)">Tetracycline Pills $420</button>
+            <button onclick="buyItem('Charcoal Tablets', 550)">Charcoal Tablets $550</button>
+            <button onclick="buyItem('Codeine Pills', 900)">Codeine Pills $900</button>
+            <button onclick="buyItem('Epinephrine Auto Injector', 1100)">Epinephrine Auto Injector $1100</button>
+            <button onclick="buyItem('Morphine Auto Injector', 1100)">Morphine Auto Injector $1100</button>
+            <button onclick="buyItem('PO-X Antioxidant', 2000)">PO-X Antioxidant $2000</button>
+            <h4>Oxygen</h4>
+            <button onclick="buyItem('Gas Mask Filter', 150)">Gas Mask Filter $150</button>
+
+            <h2>Consumables</h2>
+            <h4>Food</h4>
+            <button onclick="buyItem('Unknown Food Can', 75)">Unknown Food Can $75</button>
+            <button onclick="buyItem('Canned Animal Food', 75)">Canned Animal Food $75</button>
+            <button onclick="buyItem('Candy', 100)">Candy $100</button>
+            <button onclick="buyItem('Crisps', 100)">Crisps $100</button>
+            <button onclick="buyItem('Rice', 200)">Rice $200</button>
+            <button onclick="buyItem('Cereals', 200)">Cereals $200</button>
+            <button onclick="buyItem('Canned Vegetables', 255)">Canned Vegetables $255</button>
+            <button onclick="buyItem('Canned Meat', 255)">Canned Meat $255</button>
+            <button onclick="buyItem('Canned Fish', 255)">Canned Fish $255</button>
+            <button onclick="buyItem('Canned Fruit', 255)">Canned Fruit $255</button>
+            <h4>Drinks</h4>
+            <button onclick="buyItem('Water Bottle', 200)">Water Bottle $200</button>
+            <button onclick="buyItem('Soda Can', 255)">Soda Can $255</button>
+            <button onclick="buyItem('Canteen', 405)">Canteen $400</button>
+            <button onclick="buyItem('Vodka Bottle', 650)">Vodka Bottle $650</button>   
+            
+            <h2>Building</h2>
+            <h4>Camping</h4>
+            <button onclick="buyItem('Camo Net', 150)">Camo Net $150</button>
+            <button onclick="buyItem('Medium Tent', 250)">Medium Tent $250</button>
+            <button onclick="buyItem('Canopy Tent', 1150)">Canopy Tent $1150</button>
+            <button onclick="buyItem('Large Tent', 1150)">Large Tent $1150</button>
+            <button onclick="buyItem('Car Tent', 2500)">Car Tent $2500</button>
+            <h4>Equipment</h4>
+            <button onclick="buyItem('Flare', 20)">Flare $20</button>
+            <button onclick="buyItem('Heat Pack', 35)">Heat Pack $35</button>
+            <button onclick="buyItem('Netting', 85)">Netting $85</button>
+            <button onclick="buyItem('Orienteering Compass', 95)">Orienteering Compass $95</button>
+            <button onclick="buyItem('Compass', 150)">Compass $150</button>
+            <button onclick="buyItem('Gas Lamp', 250)">Gas Lamp $250</button>
+            <button onclick="buyItem('Flare Gun', 200)">Flare Gun $200</button>
+            <button onclick="buyItem('Field Shovel', 350)">Field Shovel $350</button>
+            <button onclick="buyItem('Hatchet', 325)">Hatchet $325</button>
+            <button onclick="buyItem('Fishing Rod', 950)">Fishing Rod $950</button>
+            <h4>Cooking</h4>
+            <button onclick="buyItem('Lighter', 50)">Lighter $50</button>
+            <button onclick="buyItem('Matches', 50)">Matches $50</button>
+            <button onclick="buyItem('Campfire Tripod', 75)">Campfire Tripod $75</button>
+            <button onclick="buyItem('Frying Pan', 100)">Frying Pan $100</button>
+            <button onclick="buyItem('Cauldron', 150)">Cauldron $150</button>
+            <button onclick="buyItem('Large Gas Canister', 150)">Large Gas Canister $150</button>
+            <button onclick="buyItem('Cooking Pot', 200)">Cooking Pot $200</button>
+            <h4>Tools</h4>
+            <button onclick="buyItem('Rope', 75)">Rope $75</button>
+            <button onclick="buyItem('Cable Reel', 95)">Cable Reel $95</button>
+            <button onclick="buyItem('Flag', 115)">Flag $115</button>
+            <button onclick="buyItem('Sharpening Stone', 150)">Sharpening Stone $150</button>
+            <button onclick="buyItem('Shovel', 195)">Shovel $195</button>
+            <button onclick="buyItem('Pickaxe', 185)">Pickaxe $185</button>
+            <button onclick="buyItem('Sledgehammer', 205)">Sledgehammer $205</button>
+            <button onclick="buyItem('Construction Light', 255)">Construction Light $255</button>
+            <button onclick="buyItem('Firefighter Axe', 275)">Firefighter Axe $275</button>
+            <button onclick="buyItem('4-Dial Combination Lock', 425)">4-Dial Combination Lock $425</button>
+            <h4>Car Parts</h4>
+            <button onclick="buyItem('Boxed Headlight Bulb', 165)">Boxed Headlight Bulb $165</button>
+            <button onclick="buyItem('Jerrycan', 385)">Jerrycan $385</button>
+            <button onclick="buyItem('Battery Charger', 575)">Battery Charger $575</button>
+            <button onclick="buyItem('Car Radiator', 655)">Car Radiator $655</button>
+            <button onclick="buyItem('Car Battery', 835)">Car Battery $835</button>
+            <button onclick="buyItem('Fuel Full Tank', 885)">Fuel (Full Tank) $885</button>
+            <button onclick="buyItem('Truck Battery', 1145)">Truck Battery $1145</button>
+            <h4>Repair</h4>
+            <button onclick="buyItem('Tire Repair Kit', 265)">Tire Repair Kit $265</button>
+            <button onclick="buyItem('Electrician Repair Kit', 275)">Electrician Repair Kit $275</button>
+            <button onclick="buyItem('Sewing Kit', 285)">Sewing Kit $285</button>
+            <button onclick="buyItem('Leather Sewing Kit', 305)">Leather Sewing Kit $305</button>
+            <button onclick="buyItem('Duct Tape', 305)">Duct Tape $305</button>
+            <button onclick="buyItem('Weapon Cleaning Kit', 595)">Weapon Cleaning Kit $595</button>
+        </div>
+
+        <div id="sell" class="tab-content">
+            <h1>Sell</h1>
+            <h2>Clothing</h2>
+            <h4>Tops</h4>
+            <button onclick="sellItem('Tracksuit Jacket', 6.25)">Tracksuit Jacket $6.25</button>
+            <button onclick="sellItem('Prisoner Jacket', 6.25)">Prisoner Jacket $6.25</button>
+            <button onclick="sellItem('Collar Dress', 6.25)">Collar Dress $6.25</button>
+            <button onclick="sellItem('Blouse', 6.25)">Blouse $6.25</button>
+            <button onclick="sellItem('Raincoat', 11.25)">Raincoat $11.25</button>
+            <button onclick="sellItem('Bomber Jacket', 13.75)">Bomber Jacket $13.75</button>
+            <button onclick="sellItem('Nurse Dress', 13.75)">Nurse Dress $13.75</button>
+            <button onclick="sellItem('Leather Jacket', 15)">Leather Jacket $15</button>
+            <button onclick="sellItem('Police Jacket', 16.25)">Police Jacket $16.25</button>
+            <button onclick="sellItem('Denim Jacket', 16.25)">Denim Jacket $16.25</button>
+            <button onclick="sellItem('Jumpsuit Jacket', 12.5)">Jumpsuit Jacket $12.50</button>
+            <button onclick="sellItem('Paramedic Jacket', 12.5)">Paramedic Jacket $12.50</button>
+            <button onclick="sellItem('Pea Coat', 18.75)">Pea Coat $18.75</button>
+            <button onclick="sellItem('Rider Jacket', 21.25)">Rider Jacket $21.25</button>
+            <button onclick="sellItem('Orel Police Jacket', 23.75)">Orel Police Jacket $23.75</button>
+            <button onclick="sellItem('Quilted Jacket', 23.75)">Quilted Jacket $23.75</button>
+            <button onclick="sellItem('Chainmail', 23.75)">Chainmail $23.75</button>
+            <button onclick="sellItem('Firefighter Jacket', 25)">Firefighter Jacket $25</button>
+            <button onclick="sellItem('Hiking Jacket', 26.25)">Hiking Jacket $26.25</button>
+            <button onclick="sellItem('Hunter Jacket', 31.25)">Hunter Jacket $31.25</button>
+            <button onclick="sellItem('Tactical Shirt', 37.5)">Tactical Shirt $37.50</button>
+            <button onclick="sellItem('CUU Jacket', 62.5)">CUU Jacket $62.50</button>
+            <button onclick="sellItem('NBC Jacket', 62.5)">NBC Jacket $62.50</button>
+            <button onclick="sellItem('Patrol Jacket', 50)">Patrol Jacket $50</button>
+            <button onclick="sellItem('Combat Jacket', 87.5)">Combat Jacket $87.50</button>
+            <button onclick="sellItem('BDU Jacket', 87.5)">BDU Jacket $87.50</button>
+            <button onclick="sellItem('Ghillie Shrug', 237.5)">Ghillie Shrug $237.50</button>
+            <h4>Bottoms</h4>    
+            <button onclick="sellItem('Jumpsuit Pants', 6.25)">Jumpsuit Pants $6.25</button>
+             <button onclick="sellItem('Denim Skirt', 6.25)">Denim Skirt $6.25</button>
+             <button onclick="sellItem('Capri Pants', 6.25)">Capri Pants $6.25</button>
+             <button onclick="sellItem('Jeans', 6.25)">Jeans $6.25</button>
+             <button onclick="sellItem('Suit Pants', 6.25)">Suit Pants $6.25</button>
+             <button onclick="sellItem('Scrub Pants', 6.25)">Scrub Pants $6.25</button>
+             <button onclick="sellItem('Prisoner Pants', 6.25)">Prisoner Pants $6.25</button>
+             <button onclick="sellItem('Leather Pants', 16.25)">Leather Pants $16.25</button>
+             <button onclick="sellItem('Paramedic Pants', 13.75)">Paramedic Pants $13.75</button>
+             <button onclick="sellItem('Orel Police Pants', 21.25)">Orel Police Pants $21.25</button>
+             <button onclick="sellItem('Chainmail Leggings', 31.25)">Chainmail Leggings $31.25</button>
+             <button onclick="sellItem('NBC Pants', 56.25)">NBC Pants $56.25</button>
+             <button onclick="sellItem('CCU Pants', 56.25)">CCU Pants $56.25</button>
+             <button onclick="sellItem('Patrol Pants', 56.25)">Patrol Pants $56.25</button>
+             <button onclick="sellItem('Firefighter Pants', 50)">Firefighter Pants $50</button>
+             <button onclick="sellItem('Cargo Pants', 81.25)">Cargo Pants $81.25</button>
+             <h4>Middle</h4>
+             <button onclick="sellItem('Rope Belt', 3.75)">Rope Belt $3.75</button>
+             <button onclick="sellItem('Belt', 11.25)">Belt $11.25</button>
+             <button onclick="sellItem('Tactical Belt', 21.25)">Tactical Belt $21.25</button>
+             <button onclick="sellItem('Sheath', 18.75)">Sheath $18.75</button>
+             <button onclick="sellItem('Hip Pack', 21.25)">Hip Pack $21.25</button>
+             <button onclick="sellItem('Holster', 56.25)">Holster $56.25</button>
+             <h4>Chest</h4>
+             <button onclick="sellItem('Chest Holster', 21.25)">Chest Holster $21.25</button>
+             <button onclick="sellItem('Hunter Vest', 43.75)">Hunter Vest $43.75</button>
+             <button onclick="sellItem('Chestplate', 43.75)">Chestplate $43.75</button>
+             <button onclick="sellItem('Tactical Vest', 56.25)">Tactical Vest $56.25</button>
+             <button onclick="sellItem('Field Vest', 62.5)">Field Vest $62.50</button>
+             <button onclick="sellItem('Assault Vest', 75)">Assault Vest $75</button>
+             <button onclick="sellItem('Pouches', 75)">Pouches $75</button>
+             <button onclick="sellItem('Plate Carrier', 137.5)">Plate Carrier $137.50</button>
+             <h4>Shoes</h4>
+             <button onclick="sellItem('Sneakers', 6.25)">Sneakers $6.25</button>
+             <button onclick="sellItem('Flat Shoes', 6.25)">Flat Shoes $6.25</button>
+             <button onclick="sellItem('Wellies', 8.75)">Wellies $8.75</button>
+             <button onclick="sellItem('Leather Shoes', 16.25)">Leather Shoes $16.25</button>
+             <button onclick="sellItem('Trail Shoes', 21.25)">Trail Shoes $21.25</button>
+             <button onclick="sellItem('Hiking Boots', 21.25)">Hiking Boots $21.25</button>
+             <button onclick="sellItem('Working Boots', 21.25)">Working Boots $21.25</button>
+             <button onclick="sellItem('Medieval Boots', 21.25)">Medieval Boots $21.25</button>
+             <button onclick="sellItem('Hunter Boots', 31.25)">Hunter Boots $31.25</button>
+             <button onclick="sellItem('Assault Boots', 56.25)">Assault Boots $56.25</button>
+             <button onclick="sellItem('Jungle Boots', 56.25)">Jungle Boots $56.25</button>
+             <button onclick="sellItem('NBC Boots', 56.25)">NBC Boots $56.25</button>
+             <h4>Head</h4>
+             <button onclick="sellItem('Bandana', 6.25)">Bandana $6.25</button>
+             <button onclick="sellItem('Mime Mask', 6.25)">Mime Mask $6.25</button>
+             <button onclick="sellItem('Carnival Mask', 6.25)">Carnival Mask $6.25</button>
+             <button onclick="sellItem('Baseball Cap', 6.25)">Baseball Cap $6.25</button>
+             <button onclick="sellItem('Radar Cap', 6.25)">Radar Cap $6.25</button>
+             <button onclick="sellItem('Beanie', 6.25)">Beanie $6.25</button>
+             <button onclick="sellItem('Ushanka', 6.25)">Ushanka $6.25</button>
+             <button onclick="sellItem('Boonie Hat', 6.25)">Boonie Hat $6.25</button>
+             <button onclick="sellItem('Cowboy Hat', 6.25)">Cowboy Hat $6.25</button>
+             <button onclick="sellItem('Leather Hat', 6.25)">Leather Hat $6.25</button>
+             <button onclick="sellItem('Petushok Hat', 6.25)">Petushok Hat $6.25</button>
+             <button onclick="sellItem('Morozko Hat', 6.25)">Morozko Hat $6.25</button>
+             <button onclick="sellItem('Okzk Cap', 6.25)">Okzk Cap $6.25</button>
+             <button onclick="sellItem('Christmas Headband', 6.25)">Christmas Headband $6.25</button>
+             <button onclick="sellItem('Ski Mask', 6.25)">Ski Mask $6.25</button>
+             <button onclick="sellItem('Witch Hat', 13.75)">Witch Hat $13.75</button>
+             <button onclick="sellItem('Beret', 18.75)">Beret $18.75</button>
+             <button onclick="sellItem('Norse Helm', 18.75)">Norse Helm $18.75</button>
+             <button onclick="sellItem('Great Helm', 18.75)">Great Helm $18.75</button>
+             <button onclick="sellItem('Enduro Helmet + Mouth Guard + Visor', 18.75)">Enduro Helmet + Mouth Guard + Visor $18.75</button>
+             <button onclick="sellItem('Witch Hood', 21.25)">Witch Hood $21.25</button>
+             <button onclick="sellItem('Combat Gas Mask', 31.25)">Combat Gas Mask $31.25</button>
+             <button onclick="sellItem('Armored Hood', 38.75)">Armored Hood $38.75</button>
+             <button onclick="sellItem('Chainmail Coif', 38.75)">Chainmail Coif $38.75</button>
+             <button onclick="sellItem('Gas Mask', 56.25)">Gas Mask $56.25</button>
+             <button onclick="sellItem('Ballistic Helmet', 56.25)">Ballistic Helmet $56.25</button>
+             <button onclick="sellItem('Camouflage Helmet', 56.25)">Camouflage Helmet $56.25</button>
+             <button onclick="sellItem('Assault Helmet + Visor', 81.25)">Assault Helmet + Visor $81.25</button>
+             <button onclick="sellItem('Tactical Helmet', 81.25)">Tactical Helmet $81.25</button>
+             <button onclick="sellItem('NVG + Headstrap', 156.25)">NVG + Headstrap $156.25</button>
+             <button onclick="sellItem('Ghillie Hood', 156.25)">Ghillie Hood $156.25</button>
+             <h4>Hands</h4>
+             <button onclick="sellItem('Fingerless Gloves', 13.75)">Fingerless Gloves $13.75</button>
+             <button onclick="sellItem('Wool Gloves', 16.25)">Wool Gloves $16.25</button>
+             <button onclick="sellItem('Working Gloves', 11.25)">Working Gloves $11.25</button>
+             <button onclick="sellItem('Leather Gloves', 16.25)">Leather Gloves $16.25</button>
+             <button onclick="sellItem('Padded Gloves', 21.25)">Padded Gloves $21.25</button>
+             <button onclick="sellItem('Tactical Gloves', 31.25)">Tactical Gloves $31.25</button>
+             <button onclick="sellItem('NBC Gloves', 56.25)">NBC Gloves $56.25</button>
+             <h4>Bags</h4>
+             <button onclick="sellItem('First Aid Pouch', 11.25)">First Aid Pouch $11.25</button>
+             <button onclick="sellItem('Canvas Bag', 16.25)">Canvas Bag $16.25</button>
+             <button onclick="sellItem('Sling Bag', 23.75)">Sling Bag $23.75</button>
+             <button onclick="sellItem('Leather Backpack', 23.75)">Leather Backpack $23.75</button>
+             <button onclick="sellItem('Drybag Backpack', 26.25)">Drybag Backpack $26.25</button>
+             <button onclick="sellItem('Leather Duffel Bag', 31.25)">Leather Duffel Bag $31.25</button>
+             <button onclick="sellItem('Mountain Backpack', 31.25)">Mountain Backpack $31.25</button>
+             <button onclick="sellItem('Utility Buttpack', 56.25)">Utility Buttpack $56.25</button>
+             <button onclick="sellItem('Assault Backpack', 56.25)">Assault Backpack $56.25</button>
+             <button onclick="sellItem('Field Backpack', 106.25)">Field Backpack $106.25</button>
+
+
+             <h2>Weapons</h2>
+             <h4>Melee</h4>
+             <button onclick="sellItem('Crude Machete', 31)">Crude Machete $31</button>
+             <button onclick="sellItem('Machete', 21)">Machete $21</button>
+             <button onclick="sellItem('Mace', 21)">Mace $21</button>
+             <button onclick="sellItem('Sword', 38)">Sword $38</button>
+             <button onclick="sellItem('KA Bayonet', 41)">KA Bayonet $41</button>
+             <button onclick="sellItem('M4-A1 Bayonet', 46)">M4-A1 Bayonet $46</button>
+             <button onclick="sellItem('Mosin 91/30 Bayonet', 31)">Mosin 91/30 Bayonet $31</button>
+             <button onclick="sellItem('SK 59/66 Bayonet', 31)">SK 59/66 Bayonet $31</button>
+             <h4>Handguns</h4>
+             <button onclick="sellItem('MK-II', 25)">MK-II $25</button>
+             <button onclick="sellItem('Derringer', 31)">Derringer $31</button>
+             <button onclick="sellItem('MLock-91', 52)">MLock-91 $52</button>
+             <button onclick="sellItem('IJ-70', 56)">IJ-70 $56</button>
+             <button onclick="sellItem('CR-75', 87)">CR-75 $87</button>
+             <button onclick="sellItem('Deagle', 87)">Deagle $87</button>
+             <button onclick="sellItem('Revolver', 91)">Revolver $91</button>
+             <button onclick="sellItem('FX-45', 112)">FX-45 $112</button>
+             <button onclick="sellItem('Longhorn', 113)">Longhorn $113</button>
+             <button onclick="sellItem('Kolt 1911', 137)">Kolt 1911 $137</button>
+             <button onclick="sellItem('Engraved Kolt 1911', 212)">Engraved Kolt 1911 $212</button>
+             <button onclick="sellItem('Deagle (Gold)', 2812)">Deagle (Gold) $2812</button>
+             <h4>SMG's</h4>
+             <button onclick="sellItem('Bizon', 81)">Bizon $81</button>
+             <button onclick="sellItem('USG-45', 168)">USG-45 $168</button>
+             <button onclick="sellItem('CR-61 Skorpion', 96)">CR-61 Skorpion $96</button>
+             <button onclick="sellItem('VIKHR', 164)">VIKHR $164</button>
+             <button onclick="sellItem('SG5-K', 206)">SG5-K $206</button>
+             <h4>Rifles</h4>
+             <button onclick="sellItem('Sporter 22', 31)">Sporter 22 $31</button>
+             <button onclick="sellItem('Repeater Carabine', 71)">Repeater Carabine $71</button>
+             <button onclick="sellItem('SK 59/66', 88)">SK 59/66 $88</button>
+             <button onclick="sellItem('Mosin 91/30', 108)">Mosin 91/30 $108</button>
+             <button onclick="sellItem('SSG 82', 141)">SSG 82 $141</button>
+             <button onclick="sellItem('Blaze', 168)">Blaze $168</button>
+             <button onclick="sellItem('CR-550 Savanna', 176)">CR-550 Savanna $176</button>
+             <button onclick="sellItem('VSS', 181)">VSS $181</button>
+             <button onclick="sellItem('SVAL', 236)">SVAL $236</button>
+             <button onclick="sellItem('LAR', 213)">LAR $213</button>
+             <button onclick="sellItem('VSD', 241)">VSD $241</button>
+             <button onclick="sellItem('DMR', 224)">DMR $224</button>
+             <button onclick="sellItem('M70 Tundra', 268)">M70 Tundra $268</button>
+             <h4>Assault Rifles</h4>
+             <button onclick="sellItem('LE-MAS', 231)">LE-MAS $231</button>
+             <button onclick="sellItem('M16-A2', 221)">M16-A2 $221</button>
+             <button onclick="sellItem('KA-74', 246)">KA-74 $246</button>
+             <button onclick="sellItem('KA-101', 231)">KA-101 $231</button>
+             <button onclick="sellItem('AUR A1', 313)">AUR A1 $313</button>
+             <button onclick="sellItem('AUR AX', 319)">AUR AX $319</button>
+             <button onclick="sellItem('LAR', 313)">LAR $313</button>
+             <button onclick="sellItem('M4-A1', 462)">M4-A1 $462</button>
+             <h4>Shotguns</h4>
+             <button onclick="sellItem('Sawed-off BK43', 31)">Sawed-off BK43 $31</button>
+             <button onclick="sellItem('BK-133', 139)">BK-133 $139</button>
+             <button onclick="sellItem('Vaiga', 214)">Vaiga $214</button>
+             <h4>Grenade Launcher</h4>
+             <button onclick="sellItem('Flashbang', 37)">Flashbang $37</button>
+             <button onclick="sellItem('Smoke Grenade', 37)">Smoke Grenade $37</button>
+             <button onclick="sellItem('Grenade', 62)">Grenade $62</button>
+             <button onclick="sellItem('Mine', 106)">Mine $106</button>
+             <button onclick="sellItem('M79', 637)">M79 $637</button>
+             <h4>Crossbow</h4>
+             <button onclick="sellItem('Crossbow (Wood)', 62)">Crossbow (Wood) $62</button>
+             <button onclick="sellItem('Crossbow', 131)">Crossbow $131</button>
+             <h4>Weapon Attachment</h4>
+             <button onclick="sellItem('Plastic Bottle Suppressor', 16)">Plastic Bottle Suppressor $16</button>
+             <button onclick="sellItem('Flashlight', 19)">Flashlight $19</button>
+             <button onclick="sellItem('Stock', 49)">Stock $49</button>
+             <button onclick="sellItem('Handguard', 51)">Handguard $51</button>
+             <button onclick="sellItem('Reflex Sight', 51)">Reflex Sight $51</button>
+             <button onclick="sellItem('Optic Sight', 66)">Optic Sight $66</button>
+             <button onclick="sellItem('Scope', 73)">Scope $73</button>
+             <button onclick="sellItem('Suppressor', 146)">Suppressor $146</button>
+             <h4>Ammo</h4>
+             <button onclick="sellItem('Crossbow Bolts', 8)">Crossbow Bolts $8</button>
+             <button onclick="sellItem('Pistol Ammo-Box', 11)">Pistol Ammo-Box $11</button>
+             <button onclick="sellItem('Shotgun Ammo-Box', 16)">Shotgun Ammo-Box $16</button>
+             <button onclick="sellItem('Pistol Magazine', 16)">Pistol Magazine $16</button>
+             <button onclick="sellItem('Rifle Ammo-Box', 21)">Rifle Ammo-Box $21</button>
+             <button onclick="sellItem('Shotgun Magazine', 21)">Shotgun Magazine $21</button>
+             <button onclick="sellItem('Rifle Magazine', 26)">Rifle Magazine $26</button>
+             <button onclick="sellItem('Magazine 30+Rounds', 37)">Magazine 30+Rounds $37</button>
+             <button onclick="sellItem('Drum Magazine', 62)">Drum Magazine $62</button>
+             
+             
+             <h2>Medical</h2>
+             <h4>Transfusion</h4>
+             <button onclick="sellItem('IV Saline Bag', 12)">IV Saline Bag $12</button>
+             <button onclick="sellItem('IV Start Kit', 18)">IV Start Kit $18</button>
+             <button onclick="sellItem('IV Blood Bag', 25)">IV Blood Bag $25</button>
+             <button onclick="sellItem('Blood Collection Kit', 25)">Blood Collection Kit $25</button>
+             <button onclick="sellItem('Blood Test Kit', 37)">Blood Test Kit $37</button>
+             <h4>Dressing</h4>
+             <button onclick="sellItem('Splint', 18)">Splint $18</button>
+             <button onclick="sellItem('Bandage', 37)">Bandage $37</button>
+             <h4>Medicine</h4>
+             <button onclick="sellItem('Multivitamin Pills', 31)">Multivitamin Pills $31</button>
+             <button onclick="sellItem('Chlorine Tablets', 31)">Chlorine Tablets $31</button>
+             <button onclick="sellItem('Tetracycline Pills', 105)">Tetracycline Pills $105</button>
+             <button onclick="sellItem('Charcoal Tablets', 137)">Charcoal Tablets $137</button>
+             <button onclick="sellItem('Codeine Pills', 225)">Codeine Pills $225</button>
+             <button onclick="sellItem('Epinephrine Auto Injector', 275)">Epinephrine Auto Injector $275</button>
+             <button onclick="sellItem('Morphine Auto Injector', 275)">Morphine Auto Injector $275</button>
+             <button onclick="sellItem('PO-X Antioxidant', 500)">PO-X Antioxidant $500</button>
+             <h4>Oxygen</h4>
+             <button onclick="sellItem('Gas Mask Filter', 37)">Gas Mask Filter $37</button>
+             
+             
+             <h2>Consumables</h2>
+             <h4>Food</h4>
+             <button onclick="sellItem('Unknown Food Can', 18)">Unknown Food Can $18</button>
+             <button onclick="sellItem('Canned Animal Food', 18)">Canned Animal Food $18</button>
+             <button onclick="sellItem('Candy', 25)">Candy $25</button>
+             <button onclick="sellItem('Crisps', 25)">Crisps $25</button>
+             <button onclick="sellItem('Rice', 50)">Rice $50</button>
+             <button onclick="sellItem('Cereals', 50)">Cereals $50</button>
+             <button onclick="sellItem('Canned Vegetables', 63)">Canned Vegetables $63</button>
+             <button onclick="sellItem('Canned Meat', 63)">Canned Meat $63</button>
+             <button onclick="sellItem('Canned Fish', 63)">Canned Fish $63</button>
+             <button onclick="sellItem('Canned Fruit', 63)">Canned Fruit $63</button>
+             <h4>Drinks</h4>
+             <button onclick="sellItem('Water Bottle', 50)">Water Bottle $50</button>
+             <button onclick="sellItem('Soda Can', 63)">Soda Can $63</button>
+             <button onclick="sellItem('Canteen', 101)">Canteen $101</button>
+             <button onclick="sellItem('Vodka Bottle', 162)">Vodka Bottle $162</button>
+             
+             
+             <h2>Building</h2>
+             <h4>Camping</h4>
+             <button onclick="sellItem('Camo Net', 37)">Camo Net $37</button>
+             <button onclick="sellItem('Medium Tent', 62)">Medium Tent $62</button>
+             <button onclick="sellItem('Canopy Tent', 287)">Canopy Tent $287</button>
+             <button onclick="sellItem('Large Tent', 287)">Large Tent $287</button>
+             <button onclick="sellItem('Car Tent', 625)">Car Tent $625</button>
+             <h4>Equipment</h4>
+             <button onclick="sellItem('Flare', 5)">Flare $5</button>
+             <button onclick="sellItem('Heat Pack', 9)">Heat Pack $9</button>
+             <button onclick="sellItem('Netting', 21)">Netting $21</button>
+             <button onclick="sellItem('Orienteering Compass', 24)">Orienteering Compass $24</button>
+             <button onclick="sellItem('Compass', 37)">Compass $37</button>
+             <button onclick="sellItem('Gas Lamp', 62)">Gas Lamp $62</button>
+             <button onclick="sellItem('Flare Gun', 50)">Flare Gun $50</button>
+             <button onclick="sellItem('Field Shovel', 87)">Field Shovel $87</button>
+             <button onclick="sellItem('Hatchet', 81)">Hatchet $81</button>
+             <button onclick="sellItem('Fishing Rod', 237)">Fishing Rod $237</button>
+             <h4>Cooking</h4>
+             <button onclick="sellItem('Lighter', 12)">Lighter $12</button>
+             <button onclick="sellItem('Matches', 12)">Matches $12</button>
+             <button onclick="sellItem('Campfire Tripod', 19)">Campfire Tripod $19</button>
+             <button onclick="sellItem('Frying Pan', 25)">Frying Pan $25</button>
+             <button onclick="sellItem('Cauldron', 37)">Cauldron $37</button>
+             <button onclick="sellItem('Large Gas Canister', 37)">Large Gas Canister $37</button>
+             <button onclick="sellItem('Cooking Pot', 50)">Cooking Pot $50</button>
+             <h4>Tools</h4>
+             <button onclick="sellItem('Rope', 18)">Rope $18</button>
+             <button onclick="sellItem('Cable Reel', 24)">Cable Reel $24</button>
+             <button onclick="sellItem('Flag', 29)">Flag $29</button>
+             <button onclick="sellItem('Sharpening Stone', 37)">Sharpening Stone $37</button>
+             <button onclick="sellItem('Shovel', 49)">Shovel $49</button>
+             <button onclick="sellItem('Pickaxe', 46)">Pickaxe $46</button>
+             <button onclick="sellItem('Sledgehammer', 51)">Sledgehammer $51</button>
+             <button onclick="sellItem('Construction Light', 64)">Construction Light $64</button>
+             <button onclick="sellItem('Firefighter Axe', 69)">Firefighter Axe $69</button>
+             <button onclick="sellItem('4-Dial Combination Lock', 107)">4-Dial Combination Lock $107</button>
+             <h4>Car Parts</h4>
+             <button onclick="sellItem('Boxed Headlight Bulb', 41)">Boxed Headlight Bulb $41</button>
+             <button onclick="sellItem('Jerrycan', 96)">Jerrycan $96</button>
+             <button onclick="sellItem('Battery Charger', 144)">Battery Charger $144</button>
+             <button onclick="sellItem('Car Radiator', 163)">Car Radiator $163</button>
+             <button onclick="sellItem('Car Battery', 209)">CarBattery $209</button>
+             <button onclick="sellItem('Fuel Full Tank', 221)">Fuel (Full Tank) $221</button>
+             <button onclick="sellItem('Truck Battery', 286)">Truck Battery $286</button>
+             <h4>Repair</h4>
+             <button onclick="sellItem('Tire Repair Kit', 66)">Tire Repair Kit $66</button>
+             <button onclick="sellItem('Electrician Repair Kit', 69)">Electrician Repair Kit $69</button>
+             <button onclick="sellItem('Sewing Kit', 71)">Sewing Kit $71</button>
+             <button onclick="sellItem('Leather Sewing Kit', 76)">Leather Sewing Kit $76</button>
+             <button onclick="sellItem('Duct Tape', 76)">Duct Tape $76</button>
+             <button onclick="sellItem('Weapon Cleaning Kit', 149)">Weapon Cleaning Kit $149</button>
+        </div>
+        
+        
+        <div id="claim" class="tab-content">
+            <h1>Rewards</h1>
+            <button onclick="claimReward('60 Min Playtime', 50)">60 Min Playtime $50</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

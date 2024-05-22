@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #171717;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0f0f0f;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999; /* Ensure the header stays on top of other content */
+}
+
+
+
+header h1 {
+    color: white; /* White text for the title */
+}
+
+
+.tabs button {
+    margin: 5px;
+}
+
+
+.container{
+    padding: 20px 20px;
+    margin-top: 200px; /* Adjust margin to account for the fixed header */
+}
+
+button {
+    background-color: #ffffff; /* Mooie blauwe kleur */
+    color:#171717;
+    border: none; /* Geen randen */
+    padding: 10px 20px; /* Padding binnen het element: boven/onder 10px, links/rechts 20px */
+    margin: 10px 0; /* Margin buiten het element: boven/onder 10px, links/rechts 0 */
+    border-radius: 0px; /* Ronde hoeken */
+    font-size: 16px; /* Grotere tekst */
+    cursor: pointer; /* Handcursor bij hover */
+    transition: background-color 0.3s ease; /* Zachte overgang bij hover */
+}
+
+button:hover {
+    background-color: #989898; /* Donkerdere blauw bij hover */
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
