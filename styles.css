@@ -30,7 +30,7 @@ header h1 {
 
 .container{
     padding: 20px 20px;
-    margin-top: 200px; /* Adjust margin to account for the fixed header */
+    margin-top: 250px; /* Adjust margin to account for the fixed header */
 }
 
 button {
