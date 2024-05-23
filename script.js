@@ -27,6 +27,18 @@ function sellItem(item, price) {
     alert(`You sold a ${item} for $${price}`);
 }
 
+function donateItem(item, price) {
+    bank += price;
+    updateBank();
+    alert(`You donated ${item} $${price}`);
+}
+
+function receiveDonation(reward, amount) {
+    bank += amount;
+    updateBank();
+    alert(`You received ${reward} S${amount}`);
+}
+
 function claimReward(reward, amount) {
     bank += amount;
     updateBank();
