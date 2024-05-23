@@ -27,10 +27,16 @@ function sellItem(item, price) {
     alert(`You sold a ${item} for $${price}`);
 }
 
+
+
 function donateItem(item, price) {
-    bank += price;
-    updateBank();
-    alert(`You donated ${item} $${price}`);
+    if (bank >= price) {
+        bank -= price;
+        updateBank();
+        alert(`You donated ${item} $${price}`);
+    } else {
+        alert("Not enough money in your wallet");
+    }
 }
 
 function receiveDonation(reward, amount) {
