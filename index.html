@@ -14,6 +14,7 @@
         <div class="tabs">
             <button onclick="showTab('buy')">Buy</button>
             <button onclick="showTab('sell')">Sell</button>
+            <button onclick="showTab('donate')">Donate</button>
             <button onclick="showTab('claim')">Rewards</button>
             <a href="rules.html"><button>Server Rules</button></a>
             <button onclick="resetBank()">Reset</button>
@@ -935,11 +936,25 @@
              <button onclick="sellItem('Meat', 150)">Meat $150</button>
         
 </div>
+
+    <div id="donate" class="tab-content">
+            <h1>Donate</h1>
+            <h4>Give To Player</h4>
+            <button onclick="buyItem('100', 100)"> $100</button>
+            <button onclick="buyItem('250', 250)"> $250</button>
+            <button onclick="buyItem('500', 500)"> $500</button>
+            <button onclick="buyItem('1000', 1000)"> $1000</button>
+            <button onclick="buyItem('2000', 2000)"> $2000</button>
+            <h4>Receive From Player</h4>
+            <button onclick="claimReward('100', 100)"> $100</button>
+            <button onclick="claimReward('250', 250)"> $250</button>
+            <button onclick="claimReward('500', 500)"> $500</button>
+            <button onclick="claimReward('1000', 1000)"> $1000</button>
+            <button onclick="claimReward('2000', 2000)"> $2000</button>
+
+    </div>
              
-             
-        
-        
-        <div id="claim" class="tab-content">
+    <div id="claim" class="tab-content">
             <h1>Rewards</h1>
             <h4>Idle</h4>
             <button onclick="claimReward('60 Min Playtime', 50)">60 Min Playtime $50</button>
@@ -949,6 +964,7 @@
             <h4>Horde</h4>
             <p>Comming Soon</p>  
     </div>
+        
     </div>
     <script src="script.js"></script>
 </body>
