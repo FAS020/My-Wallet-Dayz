@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #0f0f0f;
+    background-color: #ff1111;
     padding: 20px;
     text-align: center;
     position: fixed;
@@ -19,7 +19,7 @@ header {
 
 
 header h1 {
-    color: white; /* White text for the title */
+    color: #ff1111; 
 }
 
 
